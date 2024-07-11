@@ -11,12 +11,12 @@ pub fn resize(
     image_bytes: &[u8],
     width: u32,
     height: u32,
-) -> Option<Vec<u8>> {
+) -> Result<Vec<u8>, String> {
     set_panic_hook();
 
     let img = match image::load_from_memory(image_bytes) {
         Ok(img) => img,
-        Err(_) => return None
+        Err(e) => return Err(e.to_string())
     };
     let size = std::cmp::min(img.width(), img.height());
     let img = img.crop_imm(0, 0, size, size);
@@ -25,7 +25,9 @@ pub fn resize(
 //     let img = img.thumbnail(width, height);
 
     let mut output_bytes: Vec<u8> = Vec::new();
-    img.write_to(&mut Cursor::new(&mut output_bytes), image::ImageFormat::WebP).unwrap();
+    if let Err(e) = img.into_rgb8().write_to(&mut Cursor::new(&mut output_bytes), image::ImageFormat::WebP) {
+        return Err(e.to_string());
+    }
 
-    Some(output_bytes)
+    Ok(output_bytes)
 }
