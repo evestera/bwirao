@@ -25,7 +25,7 @@ pub fn resize(
 //     let img = img.thumbnail(width, height);
 
     let mut output_bytes: Vec<u8> = Vec::new();
-    img.write_to(&mut Cursor::new(&mut output_bytes), image::ImageFormat::Jpeg).unwrap();
+    img.write_to(&mut Cursor::new(&mut output_bytes), image::ImageFormat::WebP).unwrap();
 
     Some(output_bytes)
 }

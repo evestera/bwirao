@@ -1,0 +1,14 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "private": true,
+  "files": [
+    "bwirao.js",
+    "bwirao.d.ts"
+  ],
+  "module": "bwirao.js",
+  "types": "bwirao.d.ts",
+  "type": "module",
+  "dependencies": {
+  }
+}

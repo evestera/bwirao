@@ -40,7 +40,7 @@
         }
         let base64String = byteArrayToBase64String(result);
 
-        imgSrc = 'data:image/jpeg;base64,' + base64String;
+        imgSrc = 'data:image/webp;base64,' + base64String;
     }
 </script>
 
