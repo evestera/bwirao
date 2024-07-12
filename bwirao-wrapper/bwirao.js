@@ -4,6 +4,7 @@ import initWebp, {resize as resizeWebp} from '../bwirao/build/webp';
 import initTiff, {resize as resizeTiff} from '../bwirao/build/tiff';
 
 /*
+Magic bytes from image crate:
 static MAGIC_BYTES: [(&[u8], ImageFormat); 23] = [
     (b"\x89PNG\r\n\x1a\n", ImageFormat::Png),
     (&[0xff, 0xd8, 0xff], ImageFormat::Jpeg),
@@ -35,7 +36,7 @@ static MAGIC_BYTES: [(&[u8], ImageFormat); 23] = [
  * @param {Uint8Array} imageData
  * @param {number} width
  * @param {number} height
- * @returns {Promise<Uint8Array | undefined>}
+ * @returns {Promise<Uint8Array>}
  */
 export async function resize(imageData, width, height) {
     if (imageData[0] === 0x89 && imageData[1] === 0x50 && imageData[2] === 0x4e && imageData[3] === 0x47) {

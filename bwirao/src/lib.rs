@@ -25,7 +25,7 @@ pub fn resize(
 //     let img = img.thumbnail(width, height);
 
     let mut output_bytes: Vec<u8> = Vec::new();
-    if let Err(e) = img.into_rgb8().write_to(&mut Cursor::new(&mut output_bytes), image::ImageFormat::WebP) {
+    if let Err(e) = img.into_rgb8().write_to(&mut Cursor::new(&mut output_bytes), image::ImageFormat::Jpeg) {
         return Err(e.to_string());
     }
 
