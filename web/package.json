@@ -26,6 +26,6 @@
   },
   "type": "module",
   "dependencies": {
-    "bwirao": "file:../bwirao-wrapper"
+    "bwirao": "file:../wrapper"
   }
 }
