@@ -1,7 +1,7 @@
-import initJpeg, {resize as resizeJpeg} from './build/jpeg';
-import initPng, {resize as resizePng} from './build/png';
-import initWebp, {resize as resizeWebp} from './build/webp';
-import initTiff, {resize as resizeTiff} from './build/tiff';
+import initJpeg, {resize as resizeJpeg} from './build/jpeg/bwirao.js';
+import initPng, {resize as resizePng} from './build/png/bwirao.js';
+import initWebp, {resize as resizeWebp} from './build/webp/bwirao.js';
+import initTiff, {resize as resizeTiff} from './build/tiff/bwirao.js';
 
 /*
 Magic bytes from image crate:

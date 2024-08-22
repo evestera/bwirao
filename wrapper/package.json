@@ -1,6 +1,6 @@
 {
   "name": "bwirao",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Browser/WebAssembly Image Resizing and Optimization",
   "homepage": "https://bwirao.vestera.as/",
   "repository": {

@@ -5,3 +5,4 @@ wasm-pack build --target web --out-dir ../wrapper/build/png -- --features image/
 wasm-pack build --target web --out-dir ../wrapper/build/webp -- --features image/webp,image/jpeg
 wasm-pack build --target web --out-dir ../wrapper/build/tiff -- --features image/tiff,image/jpeg
 rm -f ../wrapper/build/*/.gitignore
+rm -f ../wrapper/build/*/package.json
