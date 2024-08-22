@@ -1,10 +1,19 @@
 {
   "name": "bwirao",
   "version": "0.0.1",
+  "description": "Browser/WebAssembly Image Resizing and Optimization",
+  "homepage": "https://bwirao.vestera.as/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evestera/bwirao.git"
+  },
+  "scripts": {
+  },
+  "author": "Erik Vesteraas",
   "private": false,
   "module": "bwirao.js",
   "types": "bwirao.d.ts",
   "type": "module",
-  "dependencies": {
-  }
+  "license": "MIT",
+  "dependencies": {}
 }
