@@ -1,4 +1,7 @@
-export type ResizeOptions = {};
+export type ResizeOptions = {
+  width: number;
+  height: number;
+};
 
 export type MessageToWorker = {
   type: 'RESIZE_IMAGE';

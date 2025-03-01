@@ -1,4 +1,4 @@
-import type { MessageFromWorker, ResizeOptions } from '$lib/WorkerMessage';
+import type { MessageFromWorker, MessageToWorker, ResizeOptions } from '$lib/WorkerMessage';
 
 let resizeWorker: Worker | undefined = undefined;
 
@@ -22,6 +22,7 @@ export async function resizeImage(
     resizeWorker!.onerror = (error) => {
       reject(error);
     };
-    resizeWorker!.postMessage({ imageData, options });
+    const message: MessageToWorker = { type: 'RESIZE_IMAGE', imageData, options };
+    resizeWorker!.postMessage(message);
   });
 }

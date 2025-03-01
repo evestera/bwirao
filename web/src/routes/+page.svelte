@@ -9,6 +9,11 @@
   let outputByteSize = 0;
   let error: string | undefined = undefined;
 
+  let width = 100;
+  let height = 100;
+  let renderedWidth = width;
+  let renderedHeight = height;
+
   function fileAsArrayBuffer(file: File): Promise<ArrayBuffer> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -44,11 +49,16 @@
     if (!inputBytes) {
       return;
     }
+    renderedWidth = width;
+    renderedHeight = height;
     imgSrc = spinnerDataUrl;
 
     inputByteSize = inputBytes.byteLength;
     try {
-      const result = await resizeImage(inputBytes, {});
+      const result = await resizeImage(inputBytes, {
+        width,
+        height
+      });
       outputByteSize = result.byteLength;
       let base64String = byteArrayToBase64String(result);
 
@@ -70,10 +80,13 @@
     <input class="file-input" type="file" accept="image/*" name="input" id="input" bind:files />
   </label>
 
+  <input type="number" bind:value={width} min="1" max="1000" />
+  <input type="number" bind:value={height} min="1" max="1000" />
+
   <button on:click={handleClick}>Create thumbnail</button>
 
   {#if imgSrc}
-    <img src={imgSrc} alt="" width="100" height="100" />
+    <img src={imgSrc} alt="" width={renderedWidth} height={renderedHeight} />
 
     <p>Input file size: {inputByteSize} bytes</p>
     <p>Output file size: {outputByteSize} bytes</p>
